@@ -4,9 +4,9 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private PlayerInput _playerInput;
 
-    [Header("Move Settings")]
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private float _speed = 10f;
+
+    private float _speed = 10f;
     private Vector3 _inputVector = Vector3.zero;
 
     private void Update() => 
@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate() =>
         Move();
+
+    public void SetMovementSpeed(float speed) => 
+        _speed = speed;
 
     private void Move() =>
         AddVelocity();
@@ -33,6 +36,11 @@ public class PlayerMovement : MonoBehaviour
     {
         try
         {
+            if (_inputVector.z == 0)
+            {
+                return;
+            }
+
             _rigidbody.velocity = _inputVector.z * _speed * Time.fixedDeltaTime * transform.forward;
         }
         catch (System.Exception e)

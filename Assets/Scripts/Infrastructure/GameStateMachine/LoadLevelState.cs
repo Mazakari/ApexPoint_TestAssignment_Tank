@@ -6,17 +6,20 @@ public class LoadLevelState : IPayloadedState<string>
     private readonly SceneLoader _sceneLoader;
     private readonly LoadingCurtain _curtain;
     private readonly IGameFactory _gameFactory;
+    private readonly IStaticDataService _staticData;
 
     public LoadLevelState(
         GameStateMachine gameStateMachine, 
         SceneLoader sceneLoader, 
         LoadingCurtain curtain, 
-        IGameFactory gameFactory)
+        IGameFactory gameFactory,
+        IStaticDataService staticDataService)
     {
         _gameStateMachine = gameStateMachine;
         _sceneLoader = sceneLoader;
         _curtain = curtain;
         _gameFactory = gameFactory;
+        _staticData = staticDataService;
     }
 
     public void Enter(string sceneName)
@@ -42,8 +45,6 @@ public class LoadLevelState : IPayloadedState<string>
 
     private void InitGameWorld()
     {
-        // To Do change to weapon set
-        //GameObject currentSkinPrefab = _progressService.Progress.gameData.currentSkinPrefab;
         InitPlayer();
         CreateLevelHud();
     }
@@ -57,7 +58,7 @@ public class LoadLevelState : IPayloadedState<string>
         {
             GameObject spawnPos = GetPlayerSpawnPointReference();
             GameObject player = SpawnPlayerAtPosition(spawnPos.transform.position);
-            InitPlayerRespawnPosition(spawnPos, player);
+            InitPlayerTank(spawnPos, player);
         }
         catch (System.Exception e)
         {
@@ -83,12 +84,11 @@ public class LoadLevelState : IPayloadedState<string>
     private GameObject SpawnPlayerAtPosition(Vector3 position) =>
        _gameFactory.CreatePlayer(position);
 
-
-    private void InitPlayerRespawnPosition(GameObject spawnPos, GameObject player)
+    private void InitPlayerTank(GameObject spawnPos, GameObject player)
     {
-        if (player.TryGetComponent(out PlayerRespawn respawn))
+        if (player.TryGetComponent(out PlayerTankConstructor constructor))
         {
-            respawn.SetRespawnPointReferrence(spawnPos.transform);
+            constructor.Construct(spawnPos.transform, _staticData);
         }
     }
 }

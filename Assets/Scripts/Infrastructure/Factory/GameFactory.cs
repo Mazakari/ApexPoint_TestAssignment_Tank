@@ -10,6 +10,9 @@ public class GameFactory : IGameFactory
     #region PLAYER
     public GameObject CreatePlayer(Vector3 at) =>
         InstantiateAtPosition(AssetPath.PLAYER_PREFAB_PATH, at);
+
+    public PlayerTankStaticData[] GetPlayerTanksStaticData() =>
+        _assets.GetPlayerTanksStaticData();
     #endregion
 
     #region HUDS

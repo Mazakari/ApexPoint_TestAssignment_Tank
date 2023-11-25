@@ -36,6 +36,7 @@ public class BootstrapState : IState
         _services.RegisterSingle<IInputService>(new InputService());
         _services.RegisterSingle<IAssets>(new AssetProvider());
         _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssets>()));
+        _services.RegisterSingle<IStaticDataService>(new StaticDataService(_services.Single<IGameFactory>()));
     }
 
     // System Settings

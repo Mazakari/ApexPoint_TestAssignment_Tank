@@ -19,4 +19,10 @@ public class AssetProvider : IAssets
         GameObject prefab = Resources.Load<GameObject>(path);
         return Object.Instantiate(prefab, parent);
     }
+
+    public PlayerTankStaticData[] GetPlayerTanksStaticData()
+    {
+        PlayerTankStaticData[] tanksData = Resources.LoadAll<PlayerTankStaticData>(AssetPath.PLAYER_TANKS_STATIC_DATA_PATH);
+        return tanksData;
+    }
 }

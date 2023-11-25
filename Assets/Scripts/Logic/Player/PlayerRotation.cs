@@ -4,19 +4,21 @@ public class PlayerRotation : MonoBehaviour
 {
     [SerializeField] private PlayerInput _playerInput;
 
-    [Header("Rotation Settings")]
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private float _speed = 10f;
+    private float _speed = 10f;
     private float _inputYRotation = 0;
 
     private void Update() =>
         ReadInputVector();
 
     private void FixedUpdate() =>
-        Move();
+        Rotation();
 
-    private void Move() =>
+    private void Rotation() =>
         Rotate();
+
+    public void SetRotationSpeed(float speed) => 
+        _speed = speed;
 
     private void ReadInputVector()
     {
@@ -34,6 +36,11 @@ public class PlayerRotation : MonoBehaviour
     {
         try
         {
+            if (_inputYRotation == 0)
+            {
+                return;
+            }
+
             _rigidbody.transform.eulerAngles = new(
                 _rigidbody.transform.eulerAngles.x, 
                 _rigidbody.transform.eulerAngles.y + _inputYRotation * _speed * Time.fixedDeltaTime, 

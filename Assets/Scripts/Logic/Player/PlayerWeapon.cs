@@ -3,8 +3,7 @@ using UnityEngine;
 public class PlayerWeapon : MonoBehaviour
 {
     [SerializeField] private PlayerInput _playerInput;
-
-    // To Do private IWeaponService _weaponService;
+    [SerializeField] private TankWeaponSlot _slot;
 
     private void OnEnable() => 
         SubscribeShootButtonCallback();
@@ -14,23 +13,43 @@ public class PlayerWeapon : MonoBehaviour
 
     private void Shoot()
     {
-        // To Do current IWeapon - Shoot
-        //_weaponService.CurrentWeapon.Shoot();
-        Debug.Log("Shoot!");
+        try
+        {
+            _slot.ShootCurrentWeapon();
+        }
+        catch (System.Exception e)
+        {
+
+            Debug.Log(e.Message);
+        }
+        
     }
 
     private void SelectPreviousWeapon()
     {
-        // To Do current IWeapon - _weaponService.SelectWeapon();
-        //_weaponService.SelectPreviousWeapon();
-        Debug.Log("SelectPreviousWeapon!");
+        try
+        {
+            _slot.SelectPreviousWeapon();
+            Debug.Log("SelectPreviousWeapon!");
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+        
     }
 
     private void SelectNextWeapon()
     {
-        // To Do current IWeapon - Shoot
-        //_weaponService.SelectNextWeapon();
-        Debug.Log("SelectNextWeapon!");
+        try
+        {
+            _slot.SelectNextWeapon();
+            Debug.Log("SelectNextWeapon!");
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e.Message);
+        }
     }
 
     private void SubscribeShootButtonCallback()
