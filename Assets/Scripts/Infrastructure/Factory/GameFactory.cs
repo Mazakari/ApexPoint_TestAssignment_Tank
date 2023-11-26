@@ -15,6 +15,16 @@ public class GameFactory : IGameFactory
         _assets.GetPlayerTanksStaticData();
     #endregion
 
+    #region ENEMY
+    public EnemyStaticData[] GetEnemyStaticData() =>
+        _assets.GetEnemyStaticData();
+
+    public ObjectPoolStaticData GetPoolStaticData() =>
+       _assets.GetPoolStaticData();
+    public GameObject CreateEnemy(Transform parent) => 
+        InstantiateInParent(AssetPath.ENEMY_PREFAB_PATH, parent);
+    #endregion
+
     #region HUDS
     public GameObject CreateLevelHud() =>
        InstantiatePrefab(AssetPath.LEVEL_CANVAS_PATH);

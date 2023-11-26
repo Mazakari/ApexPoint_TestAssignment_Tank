@@ -16,7 +16,9 @@ public class GameStateMachine
                 sceneLoader, 
                 curtain, 
                 services.Single<IGameFactory>(), 
-                services.Single<IStaticDataService>()),
+                services.Single<IStaticDataService>(),
+                services.Single<IEnemyService>(),
+                services.Single<IPoolService>()),
             [typeof(GameLoopState)] = new GameLoopState(this, sceneLoader),
         };
 

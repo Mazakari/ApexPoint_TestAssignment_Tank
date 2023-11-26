@@ -1,4 +1,4 @@
 ﻿public interface IHealth
 {
-    void GetDamage(int damage);
+    void GetDamage(float damage);
 }

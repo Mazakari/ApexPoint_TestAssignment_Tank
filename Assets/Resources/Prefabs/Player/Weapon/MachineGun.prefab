@@ -154,6 +154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7415a52c59e1bc43be1e264d71133cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shooter: {fileID: 5491063352257760842}
+  _projectilePrefab: {fileID: 401712136392483959, guid: d756345a3e587794593debdd2bed1a4e, type: 3}
+  _damage: 5
+  _projectileSpeed: 800
 --- !u!1 &3232042481885587125
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3802793151324167646}
+  - component: {fileID: 5491063352257760842}
   m_Layer: 0
   m_Name: Shooter
   m_TagString: Untagged
@@ -180,11 +185,23 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.5}
-  m_LocalScale: {x: 0.3, y: 0.30000007, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5706064192662255439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5491063352257760842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3232042481885587125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca0c9f33ada8b146946239799e68c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7967079696042882505
 GameObject:
   m_ObjectHideFlags: 0

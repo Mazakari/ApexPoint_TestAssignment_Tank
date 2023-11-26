@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
             Debug.Log(e.Message);
         }
     }
-    public void GetDamage(int damage)
+    public void GetDamage(float damage)
     {
         CalculateHealthDamage(damage);
         CheckForPlayerDestruction();
@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         }
     }
 
-    private void CalculateHealthDamage(int damage)
+    private void CalculateHealthDamage(float damage)
     {
         //здоровье=здоровье-урон* защита (0Е1).
         _currentHealth -= damage * _currentArmor;

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class LoadLevelState : IPayloadedState<string>
 {
@@ -7,19 +8,25 @@ public class LoadLevelState : IPayloadedState<string>
     private readonly LoadingCurtain _curtain;
     private readonly IGameFactory _gameFactory;
     private readonly IStaticDataService _staticData;
+    private readonly IEnemyService _enemyService;
+    private readonly IPoolService _poolService;
 
     public LoadLevelState(
         GameStateMachine gameStateMachine, 
         SceneLoader sceneLoader, 
         LoadingCurtain curtain, 
         IGameFactory gameFactory,
-        IStaticDataService staticDataService)
+        IStaticDataService staticDataService,
+        IEnemyService enemyService,
+        IPoolService poolService)
     {
         _gameStateMachine = gameStateMachine;
         _sceneLoader = sceneLoader;
         _curtain = curtain;
         _gameFactory = gameFactory;
         _staticData = staticDataService;
+        _enemyService = enemyService;
+        _poolService = poolService;
     }
 
     public void Enter(string sceneName)
@@ -34,21 +41,18 @@ public class LoadLevelState : IPayloadedState<string>
 
     private void OnLoaded()
     {
-        InitServices();
         InitGameWorld();
+        InitServices();
         EnterGameLoopState();
     }
 
-    private void InitServices()
-    {
-    }
-
+   
     private void InitGameWorld()
     {
         InitPlayer();
         CreateLevelHud();
     }
-
+  
     private GameObject GetPlayerSpawnPointReference() =>
         GameObject.FindGameObjectWithTag(Constants.PLAYER_SPAWN_POINT_TAG);
 
@@ -59,12 +63,17 @@ public class LoadLevelState : IPayloadedState<string>
             GameObject spawnPos = GetPlayerSpawnPointReference();
             GameObject player = SpawnPlayerAtPosition(spawnPos.transform.position);
             InitPlayerTank(spawnPos, player);
+
+            InitEnemyService(player);
         }
         catch (System.Exception e)
         {
             Debug.Log(e.Message);
         }
     }
+
+    private void InitEnemyService(GameObject player) => 
+        _enemyService.SetPlayerTransform(player.transform);
 
     private void CreateLevelHud()
     {
@@ -73,6 +82,19 @@ public class LoadLevelState : IPayloadedState<string>
             _gameFactory.CreateLevelHud();
         }
         catch (System.Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+    }
+    private void InitServices() =>
+       InitPoolService();
+    private void InitPoolService()
+    {
+        try
+        {
+            _poolService.InitEnemyPool();
+        }
+        catch (Exception e)
         {
             Debug.Log(e.Message);
         }

@@ -1,3 +1,5 @@
-﻿public interface IService
+﻿using UnityEngine;
+
+public interface IService
 {
 }

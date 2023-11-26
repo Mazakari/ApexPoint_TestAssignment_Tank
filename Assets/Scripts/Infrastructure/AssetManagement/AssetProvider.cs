@@ -25,4 +25,16 @@ public class AssetProvider : IAssets
         PlayerTankStaticData[] tanksData = Resources.LoadAll<PlayerTankStaticData>(AssetPath.PLAYER_TANKS_STATIC_DATA_PATH);
         return tanksData;
     }
+
+    public EnemyStaticData[] GetEnemyStaticData()
+    {
+        EnemyStaticData[] enemyData = Resources.LoadAll<EnemyStaticData>(AssetPath.ENEMY_STATIC_DATA_PATH);
+        return enemyData;
+    }
+
+    public ObjectPoolStaticData GetPoolStaticData()
+    {
+        ObjectPoolStaticData data = Resources.Load<ObjectPoolStaticData>(AssetPath.OBJECT_POOL_STATIC_DATA_PATH);
+        return data;
+    }
 }
