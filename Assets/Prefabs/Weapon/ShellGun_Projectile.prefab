@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2723414328679479938}
   - component: {fileID: 399467747188293468}
   - component: {fileID: 6287416507126618505}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 226169973923861148}
   - component: {fileID: 6754607423451176127}
   - component: {fileID: 843911047107331030}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShellGun_Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,3 +181,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 6754607423451176127}
+  _enemyLayer: 7
+  _wallLayer: 6

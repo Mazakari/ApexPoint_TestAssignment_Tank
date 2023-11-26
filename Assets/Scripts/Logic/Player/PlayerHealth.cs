@@ -45,6 +45,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
         //здоровье=здоровье-урон* защита (0Е1).
         _currentHealth -= damage * _currentArmor;
         _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
+
+        Debug.Log($"Player _currentHealth = {_currentHealth}");
     }
     private static void SendPlayerDestroyedCallback() => 
         OnPlayerDestroyed?.Invoke();

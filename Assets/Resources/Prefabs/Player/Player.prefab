@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6532393281099628437}
   - component: {fileID: 7092472309664623360}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WeaponSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 3264250356412511084}
   - component: {fileID: 3264250356412511083}
   - component: {fileID: 3264250356412511082}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TankBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 3264250356616218689}
   - component: {fileID: 3264250356616218688}
   - component: {fileID: 3264250356616218687}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TankTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3264250357631248188}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: -949802302761506300}
   - component: {fileID: 4610179761030339840}
   - component: {fileID: 2104877155249827063}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &1362823855269097712
 MonoBehaviour:
@@ -463,6 +463,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6532393281099628437}
     m_Modifications:
+    - target: {fileID: 1683402343464918838, guid: d3d64a636f8b9664298ff1cb3f5258e8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3962154335598550448, guid: d3d64a636f8b9664298ff1cb3f5258e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -503,9 +507,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6131335083121347658, guid: d3d64a636f8b9664298ff1cb3f5258e8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6980048952756547518, guid: d3d64a636f8b9664298ff1cb3f5258e8, type: 3}
       propertyPath: m_Name
       value: ShellGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980048952756547518, guid: d3d64a636f8b9664298ff1cb3f5258e8, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6980048952756547518, guid: d3d64a636f8b9664298ff1cb3f5258e8, type: 3}
       propertyPath: m_IsActive
@@ -534,13 +546,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6532393281099628437}
     m_Modifications:
+    - target: {fileID: 1197584330566777545, guid: 11924e1b2c45a1342a3ad1063c7fb58d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1806639221930296641, guid: 11924e1b2c45a1342a3ad1063c7fb58d, type: 3}
       propertyPath: m_Name
       value: MachineGun
       objectReference: {fileID: 0}
     - target: {fileID: 1806639221930296641, guid: 11924e1b2c45a1342a3ad1063c7fb58d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1806639221930296641, guid: 11924e1b2c45a1342a3ad1063c7fb58d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232042481885587125, guid: 11924e1b2c45a1342a3ad1063c7fb58d, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5706064192662255439, guid: 11924e1b2c45a1342a3ad1063c7fb58d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -581,6 +605,10 @@ PrefabInstance:
     - target: {fileID: 5706064192662255439, guid: 11924e1b2c45a1342a3ad1063c7fb58d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967079696042882505, guid: 11924e1b2c45a1342a3ad1063c7fb58d, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

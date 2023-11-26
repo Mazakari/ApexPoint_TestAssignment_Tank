@@ -30,7 +30,7 @@ public class Shooter : MonoBehaviour
         _projectile.Launch();
     }
 
-    private static void ResetScale(GameObject projectile)
+    private void ResetScale(GameObject projectile)
     {
         projectile.transform.parent = null;
         projectile.transform.localScale = Vector3.one;

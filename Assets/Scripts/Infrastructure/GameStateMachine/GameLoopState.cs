@@ -14,11 +14,18 @@ public class GameLoopState : IState
     public void Enter()
     {
         Debug.Log("GameLoopState");
+        SubscribeRestartLevelCallback();
     }
-    public void Exit()
-    {
-    }
+
+    public void Exit() => 
+        UnsubscribeRestartLevelCallback();
 
     private void RestartLevel() =>
         _gameStateMachine.Enter<LoadLevelState, string>(Constants.FIRST_LEVEL_NAME);
+
+    private void SubscribeRestartLevelCallback() => 
+        PlayerHealth.OnPlayerDestroyed += RestartLevel;
+
+    private void UnsubscribeRestartLevelCallback() =>
+       PlayerHealth.OnPlayerDestroyed -= RestartLevel;
 }

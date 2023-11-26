@@ -5,7 +5,7 @@ public class MoveToPlayer : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
 
     private float _speed = 10f;
-    private float _stopDistance = 0.1f;
+    private float _stopDistance = 0.001f;
     private Vector3 _currentPosition = Vector3.zero;
 
     private IEnemyService _enemyService;
@@ -21,8 +21,6 @@ public class MoveToPlayer : MonoBehaviour
 
     private void FixedUpdate() => 
         MoveTowardsPlayer();
-
-   
 
     private void LookAtPlayer()
     {
@@ -47,7 +45,7 @@ public class MoveToPlayer : MonoBehaviour
             if (distance > _stopDistance)
             {
                 Vector3 targetDirection = _enemyService.Player.position - _currentPosition;
-                _rigidbody.MovePosition(_currentPosition + (targetDirection * _speed * Time.fixedDeltaTime));
+                _rigidbody.velocity = _speed * Time.fixedDeltaTime * targetDirection;
             }
         }
         catch (System.Exception e)

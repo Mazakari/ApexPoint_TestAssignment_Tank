@@ -41,18 +41,25 @@ public class LoadLevelState : IPayloadedState<string>
 
     private void OnLoaded()
     {
+        CreateLevelHud();
         InitGameWorld();
         InitServices();
+        
+        SpawnFirstEnemies();
+
         EnterGameLoopState();
     }
 
-   
-    private void InitGameWorld()
-    {
+
+    private void InitGameWorld() => 
         InitPlayer();
-        CreateLevelHud();
+
+    private void SpawnFirstEnemies()
+    {
+        EnemySpawner spawner = GameObject.FindAnyObjectByType<EnemySpawner>();
+        spawner.FirstEnemySpawn();
     }
-  
+
     private GameObject GetPlayerSpawnPointReference() =>
         GameObject.FindGameObjectWithTag(Constants.PLAYER_SPAWN_POINT_TAG);
 
@@ -66,7 +73,7 @@ public class LoadLevelState : IPayloadedState<string>
 
             InitEnemyService(player);
         }
-        catch (System.Exception e)
+        catch (Exception e)
         {
             Debug.Log(e.Message);
         }

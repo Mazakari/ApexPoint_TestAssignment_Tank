@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: EnemyHeavyStaticData
   m_EditorClassIdentifier: 
   type: 2
+  damage: 30
   health: 100
   armor: 0.3
-  moveSpeed: 70
+  moveSpeed: 1

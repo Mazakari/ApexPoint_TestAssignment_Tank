@@ -13,4 +13,8 @@ public class Constants
     public const string PLAYER_SPAWN_POINT_TAG = "PlayerSpawnPoint";
     public const string ENEMY_PARENT_TAG = "EnemyParent";
     #endregion
+
+    #region VARIABLES
+    public const int MAX_ENEMIES_ON_SCREEN = 10;
+    #endregion
 }

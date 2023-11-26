@@ -107,7 +107,6 @@ public class PoolService : IPoolService
             enemy.SetActive(false);
         }
     }
-
     private bool FreeEnemiesLeft()
     {
         bool freeLeft = false;

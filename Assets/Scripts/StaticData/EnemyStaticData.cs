@@ -7,6 +7,10 @@ public class EnemyStaticData : ScriptableObject
     public EnemyType type;
 
     [Space(10)]
+    [Header("Damage Stats")]
+    public float damage;
+
+    [Space(10)]
     [Header("Survival Stats")]
     public float health;
 

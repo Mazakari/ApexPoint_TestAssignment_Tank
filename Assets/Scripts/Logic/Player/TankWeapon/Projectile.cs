@@ -79,7 +79,9 @@ public class Projectile : MonoBehaviour
     private void DisableProjectile()
     {
         _enabled = false;
-        gameObject.SetActive(false);
+        //ToDo rework to store projectile back to object pool
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     private void MoveProjectile()

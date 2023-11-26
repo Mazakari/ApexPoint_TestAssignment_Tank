@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     private float _maxArmor;
     private float _currentArmor;
 
-    public static event Action OnEnemyDestroyed;
+    public static event Action<GameObject> OnEnemyDestroyed;
 
     public void SetHealthAndArmor(EnemyStaticData data)
     {
@@ -50,6 +50,6 @@ public class EnemyHealth : MonoBehaviour, IHealth
 
         Debug.Log($"Enemy _currentHealth = {_currentHealth}");
     }
-    private static void SendEnemyDestroyedCallback() =>
-        OnEnemyDestroyed?.Invoke();
+    private void SendEnemyDestroyedCallback() =>
+        OnEnemyDestroyed?.Invoke(gameObject);
 }
